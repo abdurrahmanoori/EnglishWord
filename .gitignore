@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 # Local secrets
 secrets.json
+Resources/Raw/secrets.json

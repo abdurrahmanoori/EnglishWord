@@ -8,13 +8,10 @@ namespace EnglishWord
     {
         public static MauiApp CreateMauiApp()
         {
-            var secretsPath = Path.Combine(AppContext.BaseDirectory, "secrets.json");
-            if (File.Exists(secretsPath))
-            {
-                var json = JsonDocument.Parse(File.ReadAllText(secretsPath));
-                var key = json.RootElement.GetProperty("SyncfusionLicenseKey").GetString();
-                Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(key);
-            }
+            var secretsStream = FileSystem.OpenAppPackageFileAsync("secrets.json").GetAwaiter().GetResult();
+            var json = JsonDocument.Parse(secretsStream);
+            var key = json.RootElement.GetProperty("SyncfusionLicenseKey").GetString();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(key);
 
             var builder = MauiApp.CreateBuilder();
             builder
@@ -34,3 +31,13 @@ namespace EnglishWord
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
