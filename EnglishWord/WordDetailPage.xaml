@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:Class="EnglishWord.WordDetailPage"
+             Title="Word Detail">
+
+    <VerticalStackLayout Padding="24" Spacing="16">
+
+        <core:SfTextInputLayout Hint="Word" ContainerType="Outlined">
+            <Entry x:Name="WordLabel" IsReadOnly="True" />
+        </core:SfTextInputLayout>
+
+        <core:SfTextInputLayout Hint="Definition" ContainerType="Outlined">
+            <Editor x:Name="DefinitionLabel" IsReadOnly="True" AutoSize="TextChanges" />
+        </core:SfTextInputLayout>
+
+        <core:SfTextInputLayout Hint="Part of Speech" ContainerType="Outlined">
+            <Entry x:Name="PartOfSpeechLabel" IsReadOnly="True" />
+        </core:SfTextInputLayout>
+
+        <Button Text="Take Quiz on This Word"
+                BackgroundColor="#512BD4"
+                TextColor="White"
+                CornerRadius="8"
+                Clicked="OnQuizClicked" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

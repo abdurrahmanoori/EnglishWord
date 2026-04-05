@@ -6,7 +6,7 @@
              x:Class="EnglishWord.MainPage"
              Title="English Words">
 
-    <Grid RowDefinitions="Auto,*" Padding="16" RowSpacing="12">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="16" RowSpacing="12">
 
         <inputLayout:SfTextInputLayout Grid.Row="0"
                                        Hint="Search word..."
@@ -18,7 +18,9 @@
         <listView:SfListView Grid.Row="1"
                              x:Name="WordListView"
                              ItemsSource="{Binding Words}"
-                             ItemSize="70">
+                             ItemSize="70"
+                             SelectionMode="Single"
+                             SelectionChanged="OnWordSelected">
             <listView:SfListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="8" ColumnDefinitions="*,Auto">
@@ -41,6 +43,19 @@
                 </DataTemplate>
             </listView:SfListView.ItemTemplate>
         </listView:SfListView>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*,*" ColumnSpacing="12">
+            <Button Grid.Column="0" Text="+ Add Word"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    CornerRadius="8"
+                    Clicked="OnAddWordClicked" />
+            <Button Grid.Column="1" Text="Quiz Me"
+                    BackgroundColor="#6c757d"
+                    TextColor="White"
+                    CornerRadius="8"
+                    Clicked="OnQuizClicked" />
+        </Grid>
 
     </Grid>
 
